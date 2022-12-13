@@ -2,18 +2,18 @@ import random
 
 import pandas as pd
 
-df = pd.read_csv('results.csv', index_col=0)
+df = pd.read_csv('reported_enrolment.csv', index_col=0)
 print(df.describe())
 df2 = pd.read_csv('courses.csv')
 fas_code_course_code = dict(zip(df2.fas_code, df2.course_code))
 
 df['course_code'] = df.fas_code.map(fas_code_course_code)
 df.drop_duplicates(inplace=True)
-df.to_csv('output.csv', index=False)
+df.to_csv('course_enrolment.csv', index=False)
 
 fas_code_enrollment = dict(zip(df.fas_code, df.enrollment))
 df2['enrollment'] = df2.fas_code.map(fas_code_enrollment)
-df2.to_csv('output2.csv', index=False)
+df2.to_csv('course_enrolment_verbose.csv', index=False)
 
 # The difference of 1038 classes to 1331 courses is because some courses have two or more
 # instructors but share the same FAS codes.

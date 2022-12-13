@@ -78,7 +78,7 @@ if __name__ == "__main__":
     with open('dusty_score.txt', 'r') as f:
         scores_real = [int(line.strip()) for line in f.readlines()]
 
-    with open('dusty_score-1.txt', 'r') as f:
+    with open('dusty_score-1000.txt', 'r') as f:
         scores_1000 = [int(line.strip()) for line in f.readlines()]
 
     y = [0, 0, 0, 0]
